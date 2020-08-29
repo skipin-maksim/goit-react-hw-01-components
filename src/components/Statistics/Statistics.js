@@ -1,18 +1,22 @@
 import React from "react";
+
 import PropTypes from "prop-types";
-import styles from "./Statistics.module.scss";
 import colorPicker from "./colorPicker";
 
-function Statistics({ title, stats }) {
-  return (
-    <section className={styles.statistics}>
-      {title && <h2 className={styles.title}>{title}</h2>}
+import s from "./Statistics.module.scss";
 
-      <ul className={styles.statList}>
+function Statistics({ title, stats }) {
+  const isShowTitle = title;
+
+  return (
+    <section className={s.statistics}>
+      {isShowTitle && <h2 className={s.title}>{title}</h2>}
+
+      <ul className={s.statList}>
         {stats.map((elem) => (
-          <li className={colorPicker(elem.label)} key={elem.id}>
-            <span className={styles.label}>{elem.label}</span>
-            <span className={styles.percentage}>{elem.percentage}%</span>
+          <li key={elem.id} className={colorPicker(elem.label)}>
+            <span className={s.label}>{elem.label}</span>
+            <span className={s.percentage}>{elem.percentage}%</span>
           </li>
         ))}
       </ul>

@@ -1,17 +1,23 @@
-import styles from "./Statistics.module.scss";
+import {
+  itemDocx,
+  itemPdf,
+  itemMp3,
+  itemPsd,
+  item,
+} from "./Statistics.module.scss";
 
 export default function colorPicker(label) {
   switch (label) {
     case ".docx":
-      return styles.itemDocx;
+      return itemDocx;
     case ".pdf":
-      return styles.itemPdf;
+      return itemPdf;
     case ".mp3":
-      return styles.itemMp3;
+      return itemMp3;
     case ".psd":
-      return styles.itemPsd;
+      return itemPsd;
 
     default:
-      return styles.item;
+      return item;
   }
 }
