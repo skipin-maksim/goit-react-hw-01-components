@@ -2,6 +2,8 @@ import React from "react";
 
 import s from "./FriendList.module.scss";
 
+import defaultImg from "./default.png";
+
 function FriendsItem({ avatar, name, isOnline, id }) {
   const isOnlineClasses = isOnline ? s.statusOnline : s.statusNotOnline;
 
@@ -13,5 +15,9 @@ function FriendsItem({ avatar, name, isOnline, id }) {
     </li>
   );
 }
+
+FriendsItem.defaultProps = {
+  avatar: defaultImg,
+};
 
 export default FriendsItem;
