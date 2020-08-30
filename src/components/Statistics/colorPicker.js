@@ -4,17 +4,17 @@ import {
   itemMp3,
   itemPsd,
   item,
-} from "./Statistics.module.scss";
+} from './Statistics.module.scss';
 
-export default function colorPicker(label) {
+export default function selectClassBgColor(label) {
   switch (label) {
-    case ".docx":
+    case '.docx':
       return itemDocx;
-    case ".pdf":
+    case '.pdf':
       return itemPdf;
-    case ".mp3":
+    case '.mp3':
       return itemMp3;
-    case ".psd":
+    case '.psd':
       return itemPsd;
 
     default:

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import PropTypes from "prop-types";
-import colorPicker from "./colorPicker";
+import PropTypes from 'prop-types';
+import selectClassBgColor from './colorPicker';
 
-import s from "./Statistics.module.scss";
+import s from './Statistics.module.scss';
 
 function Statistics({ title, stats }) {
   const isShowTitle = title;
@@ -13,10 +13,10 @@ function Statistics({ title, stats }) {
       {isShowTitle && <h2 className={s.title}>{title}</h2>}
 
       <ul className={s.statList}>
-        {stats.map((elem) => (
-          <li key={elem.id} className={colorPicker(elem.label)}>
-            <span className={s.label}>{elem.label}</span>
-            <span className={s.percentage}>{elem.percentage}%</span>
+        {stats.map(({ id, label, percentage }) => (
+          <li key={id} className={selectClassBgColor(label)}>
+            <span className={s.label}>{label}</span>
+            <span className={s.percentage}>{percentage}%</span>
           </li>
         ))}
       </ul>
@@ -25,7 +25,7 @@ function Statistics({ title, stats }) {
 }
 
 Statistics.defaultProps = {
-  title: "",
+  title: '',
 };
 
 Statistics.propTypes = {
@@ -35,7 +35,7 @@ Statistics.propTypes = {
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
-    }).isRequired
+    }).isRequired,
   ).isRequired,
 };
 

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import LineTable from "./LineTable";
+import LineTable from './LineTable';
 
-import s from "./Transaction.module.scss";
+import s from './Transaction.module.scss';
 
 function Transaction({ items }) {
   return (
@@ -18,11 +18,9 @@ function Transaction({ items }) {
       </thead>
 
       <tbody className={s.bodyTable}>
-        {items.map((item) => {
-          const { id } = item;
-
-          return <LineTable key={id} item={item} />;
-        })}
+        {items.map(({ id, ...otherProps }) => (
+          <LineTable key={id} {...otherProps} />
+        ))}
       </tbody>
     </table>
   );

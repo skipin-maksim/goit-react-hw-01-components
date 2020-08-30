@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import s from "./Profile.module.scss";
+import s from './Profile.module.scss';
 
-function Profile({ users }) {
-  const { name, tag, location, avatar } = users;
-  const { followers, views, likes } = users.stats;
+function Profile({ name, tag, location, avatar, stats }) {
+  const { followers, views, likes } = stats;
 
   return (
     <div className={s.profile}>
@@ -35,13 +34,11 @@ function Profile({ users }) {
 }
 
 Profile.propTypes = {
-  users: PropTypes.exact({
-    name: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    stats: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
-  }).isRequired,
+  name: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  stats: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
 };
 
 export default Profile;

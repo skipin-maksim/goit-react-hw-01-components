@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import s from "./FriendList.module.scss";
+import defaultImg from '../../assets/images/default.png';
 
-import defaultImg from "./default.png";
+import s from './FriendList.module.scss';
 
 function FriendsItem({ avatar, name, isOnline, id }) {
   const isOnlineClasses = isOnline ? s.statusOnline : s.statusNotOnline;

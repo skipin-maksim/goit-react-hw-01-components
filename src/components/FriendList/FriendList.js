@@ -1,22 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import FriendsItem from "./FriendsItem";
+import FriendsItem from './FriendsItem';
 
-import s from "./FriendList.module.scss";
+import s from './FriendList.module.scss';
 
 function FriendList({ friends }) {
   return (
     <ul className={s.friendList}>
-      {friends.map(({ avatar, name, isOnline, id }) => (
-        <FriendsItem
-          key={id}
-          avatar={avatar}
-          name={name}
-          isOnline={isOnline}
-          id={id}
-        />
+      {friends.map(({ id, ...otherProps }) => (
+        <FriendsItem key={id} {...otherProps} />
       ))}
     </ul>
   );
@@ -29,7 +23,7 @@ FriendList.propTypes = {
       name: PropTypes.string.isRequired,
       isOnline: PropTypes.bool.isRequired,
       id: PropTypes.number.isRequired,
-    })
+    }),
   ),
 };
 
